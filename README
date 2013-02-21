@@ -1,0 +1,24 @@
+import.lua - import multiple modules easily
+
+Based off of a thread on the LuaL mailing list, I decided to make this.
+Supports Lua 5.1 and 5.2
+
+Usage:
+
+import{ _ENV,
+    'os',
+    i_liek_math = 'math',
+    LuaFileSystem = 'lfs',
+    'foo.bar', -- in table 'bar'
+}
+
+Function:
+
+<table> import(<table *>)
+
+* - if table[1] is a table, then it is used as the base for putting modules
+    in and is returned. The table passed to import must contain either
+        string moduleName
+        OR 
+        string tableName, string moduleName
+    (see the Usage above)
